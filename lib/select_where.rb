@@ -1,4 +1,3 @@
-require 'select_where/errors'
 
 module SelectWhere
 
@@ -34,12 +33,7 @@ module SelectWhere
 
     def self.value_matches_target?(target, value)
       if value.respond_to?(:call)
-        result = value.call(target)
-        if result.is_a?(TrueClass) || result.is_a?(FalseClass)
-          result
-        else
-          raise NonBoolReturnForValueProc.new(result)
-        end
+        value.call(target)
       else
         target == value
       end

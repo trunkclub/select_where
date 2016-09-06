@@ -28,18 +28,6 @@ RSpec.describe SelectWhere::Helpers do
         expect(SelectWhere::Helpers.item_matches_target?({ 'a' => 10 }, 'a', test_proc)).to eq(true)
       end
 
-      it 'should throw if the proc returns something that is not TrueClass or FalseClass' do
-        test_proc = ->(a) { a }
-
-        expect {
-          SelectWhere::Helpers.item_matches_target?({ a: 10 }, 'a', test_proc)
-        }.to raise_error(SelectWhere::NonBoolReturnForValueProc)
-
-        expect {
-          SelectWhere::Helpers.item_matches_target?({ 'a' => 10 }, 'a', test_proc)
-        }.to raise_error(SelectWhere::NonBoolReturnForValueProc)
-      end
-
     end
 
   end
