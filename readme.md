@@ -19,7 +19,7 @@ SelectWhere.select(arr, { a: ->(v) { v > 0 } }) # => [{ a: 1 }, { a: 2 }]
 require 'select_where/core_ext/array'
 
 arr = [{ a: 1 }, { a: 2 }]
-arr.select_where(arr, { a: 2 }) # => [{ a: 2}]
-arr.detect_where(arr, { a: 2 }) # => { a: 2}
-arr.select_where(arr, { a: ->(v) { v > 0 } }) # => [{ a: 1 }, { a: 2 }]
+arr.select_where({ a: 2 }) # => [{ a: 2}]
+arr.detect_where({ a: 2 }) # => { a: 2}
+arr.select_where({ a: ->(v) { v > 0 } }) # => [{ a: 1 }, { a: 2 }]
 ```
