@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    select_where (1.0.0)
+    select_where (1.0.2)
 
 GEM
   remote: https://rubygems.org/
