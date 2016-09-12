@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "select_where"
-  spec.version       = "1.0.2"
+  spec.version       = "1.1.0"
   spec.authors       = ["Trunkclub"]
   spec.email         = ["nickm@trunkclub.com"]
   spec.description   = "extends ruby array with select helpers"

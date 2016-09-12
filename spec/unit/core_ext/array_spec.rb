@@ -46,7 +46,6 @@ describe Array do
 
   end
 
-
   describe Array.instance_method(:detect_where) do
 
     it 'should find an item in an array of hashes' do
@@ -90,4 +89,29 @@ describe Array do
     end
 
   end
+
+  describe Array.instance_method(:fetch_map) do
+
+    it 'should implement fetch_map (key)' do
+      arr = [{ 'a' => 1 }, { 'a' => 2 }, { 'b' => 3}]
+
+      expect {
+        arr.fetch_map('a')
+      }.to raise_error(KeyError)
+    end
+
+    it 'should implement fetch_map (key, value)' do
+      arr = [{ 'a' => 1 }, { 'a' => 2 }, { 'b' => 3}]
+      expect(arr.fetch_map('a', 'default')).to eq([1, 2, 'default'])
+    end
+
+    it 'should implement fetch_map (key, block)' do
+      arr = [{ 'a' => 1 }, { 'a' => 2 }, { 'b' => 3}]
+      expect(arr.fetch_map('a') { 'default' }).to eq([1, 2, 'default'])
+    end
+
+  end
+
+
+
 end
