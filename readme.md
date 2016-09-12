@@ -10,7 +10,10 @@ Add the following line to your Gemfile:
 gem 'select_where'
 ```
 
-##### Standalone
+
+##### Methods
+
+###### select_where / detect_where
 
 ```ruby
 require 'select_where'
@@ -19,15 +22,22 @@ arr = [{ a: 1 }, { a: 2 }]
 SelectWhere.select(arr, { a: 2 }) # => [{ a: 2}]
 SelectWhere.detect(arr, { a: 2 }) # => { a: 2}
 SelectWhere.select(arr, { a: ->(v) { v > 0 } }) # => [{ a: 1 }, { a: 2 }]
-```
 
-##### As an extension
-
-```ruby
 require 'select_where/core_ext/array'
-
 arr = [{ a: 1 }, { a: 2 }]
 arr.select_where({ a: 2 }) # => [{ a: 2}]
 arr.detect_where({ a: 2 }) # => { a: 2}
 arr.select_where({ a: ->(v) { v > 0 } }) # => [{ a: 1 }, { a: 2 }]
+```
+
+###### fetch_map
+
+```ruby
+require 'select_where'
+
+arr = [{ a: 1 }, { a: 2 }, { b: 3 }]
+SelectWhere.fetch_map(arr, :a, nil) # => [1, 2, nil]
+
+require 'select_where/core_ext/array'
+arr.fetch_map(:a, nil) # => [1, 2, nil]
 ```

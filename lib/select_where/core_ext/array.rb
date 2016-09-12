@@ -11,3 +11,9 @@ if !Array.method_defined?(:select_where)
     define_method :select_where do |match_hash| ::SelectWhere.select(self, match_hash) end
   end
 end
+
+if !Array.method_defined?(:fetch_map)
+  class Array
+    define_method :fetch_map do |*args, &block| ::SelectWhere.fetch_map(self, *args, &block) end
+  end
+end
